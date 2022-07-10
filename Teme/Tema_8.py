@@ -199,16 +199,16 @@ from selenium.webdriver.common.by import By
 
 
 # ● Class name*
-s = Service(ChromeDriverManager().install())
-chrome = webdriver.Chrome(service=s)
-chrome.maximize_window()
-chrome.get('https://formy-project.herokuapp.com/form')
-clasa=chrome.find_elements(By.CLASS_NAME, 'form-control')
-clasa[1].send_keys("a")
-sleep(2)
-clasa[3].click()
-sleep(3)
-clasa[4].click()
+# s = Service(ChromeDriverManager().install())
+# chrome = webdriver.Chrome(service=s)
+# chrome.maximize_window()
+# chrome.get('https://formy-project.herokuapp.com/form')
+# clasa=chrome.find_elements(By.CLASS_NAME, 'form-control')
+# clasa[1].send_keys("a")
+# sleep(2)
+# clasa[3].click()
+# sleep(3)
+# clasa[4].click()
 
 '''
 # s = Service(ChromeDriverManager().install())
@@ -222,6 +222,22 @@ clasa[4].click()
 
 
 # ● Css (1 după id, 1 după clasă, 1 după atribut=valoare_partiala)
+# s = Service(ChromeDriverManager().install())
+# chrome = webdriver.Chrome(service=s)
+# chrome.maximize_window()
+# chrome.get('https://formy-project.herokuapp.com/form')
+#
+# chrome.find_element(By.CSS_SELECTOR, 'input#last-name').send_keys('LastName')
+# sleep(2)
+# chrome.find_element(By.CSS_SELECTOR, 'input#last-name').clear()
+# sleep(3)
+#
+# chrome.find_element(By.CSS_SELECTOR, 'input.form-control'). send_keys('clasa')
+# sleep(3)
+#
+# chrome.find_element(By.CSS_SELECTOR, 'div.input[placeholder*="Enter your job title"]').send_keys('Job')
+# sleep(3)  #crapa Unable to locate element: {"method":"css selector","selector":"div.input[placeholder*="Enter your job title"]"}
+#             # (Session info: chrome=103.0.5060.114)
 
 
 
@@ -229,8 +245,31 @@ clasa[4].click()
 
 # Pentru xpath identifică elemente după criteriile de mai jos:
 # ● 3 după atribut valoare
+s = Service(ChromeDriverManager().install())
+chrome = webdriver.Chrome(service=s)
+chrome.maximize_window()
+chrome.get('https://formy-project.herokuapp.com/form')
+
+chrome.find_element(By.XPATH, '//input[@id="first-name"]').send_keys("Andre")
+sleep(3)
+chrome.find_element(By.XPATH, '//input[@id="last-name"]').send_keys("Lech")
+sleep(3)
+chrome.find_element(By.XPATH, '//input[@id="job-title"]').send_keys("job new")
+sleep(3)
+
+
+
+
+
 # ● 3 după textul de pe element
+
+
+
+
 # ● 1 după parțial text
+
+
+
 # ● 1 cu SAU, folosind pipe |
 # ● 1 cu *
 # ● 1 în care le iei ca pe o listă de xpath și în python ajunge 1 element, deci cu (xpath)[1]
